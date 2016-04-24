@@ -12,7 +12,7 @@ app.listen(app.get('port'), function () {
 });
 
 app.get('/webhook', function (req, res) {
-  if (req.query['hub.verify_token'] === <jirayubot>) {
+  if (req.query['hub.verify_token'] === "jirayubot") {
     res.send(req.query['hub.challenge']);
   } else {
     res.send('Error, wrong validation token');    
