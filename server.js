@@ -6,7 +6,7 @@ var token = "CAAMlljgxbmQBAERXB6XphXjyDAnfkG2pzVI2zdhqZB1w91RKlnvPN4vRuZCroQ8m4b
 
 function sendTextMessage(sender, text) {
   messageData = {
-    text:"welcone to Natalie Action Camera"
+    text:"Welcone to Natalie Action Camera"
   }
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
