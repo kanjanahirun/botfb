@@ -6,7 +6,7 @@ var token = "CAAMlljgxbmQBAERXB6XphXjyDAnfkG2pzVI2zdhqZB1w91RKlnvPN4vRuZCroQ8m4b
 
 function sendTextMessage(sender, text) {
   messageData = {
-    text:"Welcone to Natalie Action Camera. Can I help you ?"
+    text:text
   }
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -55,7 +55,7 @@ app.post('/webhook/', function (req, res) {
       // Handle a text message from this sender
       console.log(text);
 
-      sendTextMessage(sender,text)
+      sendTextMessage(sender,text);
 
     }
   }
