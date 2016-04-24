@@ -54,7 +54,6 @@ app.post('/webhook/', function (req, res) {
       text = event.message.text;
       // Handle a text message from this sender
       console.log(text);
-      text = "สวัสดีครับ";
 
       sendTextMessage(sender,text)
 
