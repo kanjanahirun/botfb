@@ -4,6 +4,7 @@ var request = require('request');
 var token = "CAAMlljgxbmQBAERXB6XphXjyDAnfkG2pzVI2zdhqZB1w91RKlnvPN4vRuZCroQ8m4bOTDhs0umU6aGcbgZAMSQ2ZCXYAyfC9k3xvEa2fk8KNKlwW38dS3mbcCWSS4OLrOPWRhzQJ1G0y7mrCsvw39QzgZBjxUzzdo6XfcWHKZBnBB7xZBCtSUqRkNZCuN9utYnQZD";
 var app = express();
 var check = 0;
+var hi = 0;
 app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
@@ -19,6 +20,7 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook/', function (req, res) {
+	
   var messaging_events = req.body.entry[0].messaging;
   for (i = 0; i < messaging_events.length; i++) {
     var event = req.body.entry[0].messaging[i];
@@ -27,11 +29,14 @@ app.post('/webhook/', function (req, res) {
       var text = event.message.text;
       // Handle a text message from this sender
       console.log(text);
+      if (hi == 0){
+      	sendTextMessage(sender, "auto bot : สวัสดีคค่ะ");
+      }
       if (text == '...'){
-      	sendTextMessage(sender, "ว่าไง");
+      	sendTextMessage(sender, "auto bot : มีอะไรให้ช่วยไหมคะ");
       }
       else if (text == 'อยากฟังเพลง'){
-      	sendTextMessage(sender, "เพลงอะไรค่ะ");
+      	sendTextMessage(sender, "auto bot : เพลงอะไรค่ะ");
       	check = 1;
       }
       else if (check == 1){
@@ -39,15 +44,15 @@ app.post('/webhook/', function (req, res) {
       	check = 0;
       }
 			else if (text == 'อยากดูรูป'){
-      	sendTextMessage(sender, "อยากให้หารูปเกี่ยวกับอะไรค่ะ");
+      	sendTextMessage(sender, "auto bot : อยากให้หารูปเกี่ยวกับอะไรค่ะ");
       	check = 2;
       }
       else if (check == 2){
-      	sendTextMessage(sender, "เสือกจังตะ https://www.google.co.th/search?q=" + text + "&source=lnms&tbm=isch");
+      	sendTextMessage(sender, "auto bot :  https://www.google.co.th/search?q=" + text + "&source=lnms&tbm=isch");
       	check = 0;
       }
       else {
-      	sendTextMessage(sender, "ดิฉันไม่เข้าใจที่คุณพิมพ์ค่ะ");
+      	sendTextMessage(sender, "auto bot :  ดิฉันไม่เข้าใจที่คุณพิมพ์ค่ะ");
       }
     }
   }
