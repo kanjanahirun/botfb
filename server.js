@@ -31,8 +31,9 @@ app.post('/webhook/', function (req, res) {
       console.log(text);
       if (hi == 0){
       	sendTextMessage(sender, "auto bot : สวัสดีคค่ะ");
+      	hi = 1;
       }
-      if (text == '...'){
+      else if (text == '...'){
       	sendTextMessage(sender, "auto bot : มีอะไรให้ช่วยไหมคะ");
       }
       else if (text == 'อยากฟังเพลง'){
